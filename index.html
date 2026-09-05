@@ -11,10 +11,23 @@
 </head>
 <body>
 
+  <!-- TOPBAR MOBILE (hanya tampil di layar kecil) -->
+  <header class="mobile-topbar">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-topbar-brand">
+      <span class="side-brand-mark">✤</span>
+      <strong>Buku Kelas</strong>
+    </div>
+  </header>
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+
 <div class="app">
 
   <!-- SIDEBAR -->
-  <aside class="side">
+  <aside class="side" id="sideNav">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu">×</button>
     <div class="side-brand">
       <span class="side-brand-mark">✤</span>
       <div class="side-brand-text">
