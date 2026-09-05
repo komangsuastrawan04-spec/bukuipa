@@ -142,7 +142,7 @@ function escapeHtml(str) {
 /* ---------------------------- navigasi antar view ---------------------------- */
 
 document.querySelectorAll('.nav-item').forEach(btn => {
-  btn.addEventListener('click', () => switchView(btn.dataset.view));
+  btn.addEventListener('click', () => { switchView(btn.dataset.view); closeMobileNav(); });
 });
 
 function switchView(view) {
@@ -150,6 +150,22 @@ function switchView(view) {
   document.querySelectorAll('.view').forEach(v => v.classList.toggle('is-active', v.id === 'view-' + view));
   renderAll();
 }
+
+/* ---------------------------- menu mobile (hamburger) ---------------------------- */
+
+function openMobileNav() {
+  document.getElementById('sideNav').classList.add('is-open');
+  document.getElementById('mobileNavBackdrop').classList.add('is-open');
+  document.body.classList.add('no-scroll');
+}
+function closeMobileNav() {
+  document.getElementById('sideNav').classList.remove('is-open');
+  document.getElementById('mobileNavBackdrop').classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+}
+document.getElementById('mobileMenuBtn').addEventListener('click', openMobileNav);
+document.getElementById('mobileNavClose').addEventListener('click', closeMobileNav);
+document.getElementById('mobileNavBackdrop').addEventListener('click', closeMobileNav);
 
 globalKelasSelect.addEventListener('change', renderAll);
 globalDate.addEventListener('change', renderAll);
